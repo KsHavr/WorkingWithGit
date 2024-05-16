@@ -97,11 +97,7 @@
   </sap:WorkflowViewStateService.ViewState>
   <Sequence sap2010:Annotation.AnnotationText="Create a list where two items will be added, then all of the list items will be converted to title case." DisplayName="List Demo" sap:VirtualizedContainerService.HintSize="593.6,1273.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:List(x:String)" Name="SpainCities">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new List(of String) from {&quot;MADRID&quot;, &quot;valencia&quot;, &quot;BARCELONA&quot;, &quot;Bilbao&quot;}" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String) from {&quot;MADRID&quot;, &quot;valencia&quot;, &quot;BARCELONA&quot;, &quot;Bilbao&quot;}]" Name="SpainCities" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="AllCities" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="UKCities" />
       <Variable x:TypeArguments="scg:List(scg:List(x:String))" Name="AllCitiesTitleCase" />
