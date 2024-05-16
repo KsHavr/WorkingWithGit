@@ -1,6 +1,6 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1819.2,1338.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="33">
+    <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,6 +34,8 @@
       <x:String>System.Text.Encodings.Web</x:String>
       <x:String>System.Text</x:String>
       <x:String>System.Globalization</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -80,6 +82,11 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -90,10 +97,14 @@
   </sap:WorkflowViewStateService.ViewState>
   <Sequence sap2010:Annotation.AnnotationText="Create a list where two items will be added, then all of the list items will be converted to title case." DisplayName="List Demo" sap:VirtualizedContainerService.HintSize="593.6,1273.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of String) from {&quot;MADRID&quot;, &quot;valencia&quot;, &quot;BARCELONA&quot;}]" Name="SpainCities" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="SpainCities">
+        <Variable.Default>
+          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new List(of String) from {&quot;MADRID&quot;, &quot;valencia&quot;, &quot;BARCELONA&quot;, &quot;Bilbao&quot;}" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="scg:List(x:String)" Name="AllCities" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="UKCities" />
-      <Variable x:TypeArguments="scg:List(scg:List(x:String))" Default="[new List(Of String)]" Name="AllCitiesTitleCase" />
+      <Variable x:TypeArguments="scg:List(scg:List(x:String))" Name="AllCitiesTitleCase" />
       <Variable x:TypeArguments="x:String" Name="variable1" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
